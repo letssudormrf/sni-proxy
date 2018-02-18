@@ -1,5 +1,9 @@
 #!/bin/sh
 
+LISTENERS=${LISTENERS:-"http;8080 tls;8443"}
+RULES_HTTP=${RULES_HTTP:-".*;*:80"}
+RULES_TLS=${RULES_TLS:-".*;*:443"}
+
 if [ -n "${USER}" ]; then
 echo "user ${USER}" >> /tmp/sniproxy.conf
 fi
