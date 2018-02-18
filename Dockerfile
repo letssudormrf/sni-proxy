@@ -7,8 +7,8 @@ RUN chmod a+rwx /usr/local/bin/entrypoint.sh
 RUN set -ex;\
     apk update;\
     apk upgrade;\
-    apk add --no-cache su-exec tini sniproxy;\
+    apk add --no-cache sniproxy;\
     rm -rf /var/cache/apk/*
 
-ENTRYPOINT ["/sbin/tini", "--", "entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["sniproxy", "-c /tmp/sniproxy.conf", "-f"]

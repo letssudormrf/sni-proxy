@@ -52,4 +52,4 @@ echo "*** Show sniproxy configuration ***"
 cat /tmp/sniproxy.conf
 
 echo "*** Startup $0 suceeded now starting service using eval to expand CMD variables ***"
-exec su-exec sniproxy $(eval echo "$@")
+sniproxy -c /tmp/sniproxy.conf -f
